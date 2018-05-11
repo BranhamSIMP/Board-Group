@@ -1,0 +1,48 @@
+package Buttons;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+
+public class Tester {
+
+	public Tester()
+	{
+		
+	}
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Tester");
+		
+		
+		frame.setSize(800,800);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
+		RectangleComponent1 FC = new RectangleComponent1();
+		frame.add(FC);
+		
+		frame.setVisible(true);
+
+	}
+	
+	
+	
+
+}
+class RectangleComponent1 extends JComponent
+{
+	int WIDTH = 100;
+	int HEIGHT = 90;
+	public void paintComponent(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setColor(Color.RED);
+		g2.fillRect(100,100,WIDTH,HEIGHT);
+		
+		
+	}
+}

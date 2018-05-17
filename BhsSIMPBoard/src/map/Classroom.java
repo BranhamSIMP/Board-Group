@@ -1,7 +1,7 @@
 package map;
 
 import java.awt.Rectangle;
-
+//hello
 public class Classroom extends MapElement {
 	private String description;
 	
@@ -14,5 +14,5 @@ public class Classroom extends MapElement {
 	public String toString() {
 		return description;
 	}
-
+//test again
 }

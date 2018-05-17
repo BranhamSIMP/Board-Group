@@ -1,0 +1,17 @@
+{
+	"wings" : [
+		{
+			"description" : "Main Office test wing",
+			"upperLeft" : [0.149356, 0.121739],
+			"lowerRight" : [0.25236, 0.21413],
+			"rooms" : [
+				{
+					"description" : "Main Office",
+					"upperLeft" : [0.149356, 0.121739],
+					"lowerRight" : [0.25236, 0.21413]
+				}
+			]
+		}
+	]
+}	
+		

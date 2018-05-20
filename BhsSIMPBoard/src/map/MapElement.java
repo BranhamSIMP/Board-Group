@@ -6,18 +6,19 @@ import java.util.ArrayList;
 
 public class MapElement {
 	private ArrayList<Rectangle> boxes;
+	private MapElement parent;
 	
-	public MapElement(Point corner, int width, int height) {
+	public MapElement(SimpGraphics parent, Point corner, int width, int height) {
 		boxes = new ArrayList<Rectangle>();
 		boxes.add(new Rectangle(corner.x, corner.y, width, height));
 	}
 	
-	public MapElement(Rectangle rect) {
+	public MapElement(SimpGraphics parent, Rectangle rect) {
 		boxes = new ArrayList<Rectangle>();
 		boxes.add(rect);
 	}
 	
-	public MapElement(ArrayList<Rectangle> rectList) {
+	public MapElement(SimpGraphics parent, ArrayList<Rectangle> rectList) {
 		boxes = new ArrayList<Rectangle>(rectList);
 	}
 	
@@ -32,5 +33,9 @@ public class MapElement {
 	
 	protected ArrayList<Rectangle> getBounds() {
 		return boxes;
+	}
+	
+	protected MapElement getParent() {
+		return parent;
 	}
 }

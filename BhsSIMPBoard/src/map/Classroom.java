@@ -1,12 +1,19 @@
 package map;
 
 import java.awt.Rectangle;
-//hello
-public class Classroom extends MapElement {
+import java.util.ArrayList;
+
+public class Classroom extends MapElement implements SimpGraphics {
 	private String description;
 	
-	public Classroom(Rectangle box, String description) {
-		super(box);
+	public Classroom(SimpGraphics parent, Rectangle box, String description) {
+		super(parent, box);
+		this.description = description;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Classroom(SimpGraphics parent, ArrayList<Rectangle> boxes, String description) {
+		super(parent, boxes);
 		this.description = description;
 		// TODO Auto-generated constructor stub
 	}
@@ -14,5 +21,34 @@ public class Classroom extends MapElement {
 	public String toString() {
 		return description;
 	}
-//test again
+
+	@Override
+	public boolean isActive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void inactiveTimer(int seconds) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void rescale(double scale) {
+		// TODO Auto-generated method stub
+		
+	}
 }

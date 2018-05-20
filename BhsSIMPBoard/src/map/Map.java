@@ -1,5 +1,6 @@
 package map;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -11,35 +12,90 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class Map implements SimpGraphics {
 	
 	private static final String MAP_FILENAME = "BetterMapOfBranham3.png";
-	private static final int FRAME_HEIGHT = 920;   //112
-	private static final int FRAME_WIDTH = 1165;  //174
-	private ArrayList<Wing> wings;
+	private static final int FRAME_HEIGHT = 920;  
+	private static final int FRAME_WIDTH = 1165;  //729, 469
+	private ArrayList<MapElement> elements;
 	private JFrame frame;
 
 	
-	public Map() throws FileNotFoundException {
-		Classroom test = new Classroom(new Rectangle((int) (FRAME_WIDTH * 0.149356), (int) (FRAME_HEIGHT * 0.121739), 120, 85), "test room: main office");
+	public Map() {		
+		elements = new ArrayList<MapElement>();
 		
-		File f = new File("locations.json");
-		Scanner s = new Scanner(f).useDelimiter("\\A");
+		try {
+			loadFromJson("locations.json");
+		}
+		catch (FileNotFoundException e) {
+			System.err.println("Locations file not found");
+		}
+	}
+	
+	private void loadFromJson(String fileName) throws FileNotFoundException {
+		File f = new File(fileName);
+		Scanner s = new Scanner(f);
+		s.useDelimiter("\\A");
 		String result = s.hasNext() ? s.next() : "";
 		s.close();
 		
 		JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
-		System.out.println(jsonObject.get("wings").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString());
-		ArrayList<Classroom> rooms = new ArrayList<Classroom>();
-		rooms.add(test);
-		Wing w = new Wing(test.getBounds().get(0), rooms, "main office wing");
-		wings = new ArrayList<Wing>();
-		wings.add(w);
+		
+		for (JsonElement wing : jsonObject.get("wings").getAsJsonArray()) {
+			elements.add(parseWing(wing.getAsJsonObject()));
+		}
+		
+		for (JsonElement room : jsonObject.get("rooms").getAsJsonArray()) {
+			elements.add(parseClassroom(this, room.getAsJsonObject()));
+		}
 	}
 	
+	private Point arrayToPoint(JsonArray arr) {
+		return new Point((int) (FRAME_WIDTH * arr.get(0).getAsDouble()), (int) (FRAME_HEIGHT * arr.get(1).getAsDouble()));
+	}
+	
+	private Classroom parseClassroom(SimpGraphics parent, JsonObject c) {
+		ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
+		
+		for (JsonElement rect : c.get("buttons").getAsJsonArray()) {
+			JsonObject r = rect.getAsJsonObject();
+			Point upperLeft = arrayToPoint(r.get("upperLeft").getAsJsonArray());
+			Point lowerRight = arrayToPoint(r.get("lowerRight").getAsJsonArray());
+
+			rects.add(new Rectangle(upperLeft.x, upperLeft.y, lowerRight.x - upperLeft.x, lowerRight.y - upperLeft.y));
+		}
+		
+		return new Classroom(parent, rects, c.get("description").getAsString());
+	}
+	
+	private Wing parseWing(JsonObject w) {
+		
+		ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
+		ArrayList<Classroom> rooms = new ArrayList<Classroom>();
+		
+		for (JsonElement rect : w.get("buttons").getAsJsonArray()) {
+			JsonObject r = rect.getAsJsonObject();
+			Point upperLeft = arrayToPoint(r.get("upperLeft").getAsJsonArray());
+			Point lowerRight = arrayToPoint(r.get("lowerRight").getAsJsonArray());
+
+			rects.add(new Rectangle(upperLeft.x, upperLeft.y, lowerRight.x - upperLeft.x, lowerRight.y - upperLeft.y));
+		}
+		
+		Wing result = new Wing(this, rects, w.get("description").getAsString());
+		
+		for (JsonElement room : w.get("rooms").getAsJsonArray()) {
+			rooms.add(parseClassroom(result, room.getAsJsonObject()));
+		}
+		
+		result.addRooms(rooms);
+
+		return result;
+	}
 	private class MapListener implements MouseListener {
 
 		@Override
@@ -50,9 +106,9 @@ public class Map implements SimpGraphics {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			for (Wing w : wings) {
-				if (w.contains(e.getPoint())) {
-					System.out.println(w.toString());
+			for (MapElement m : elements) {
+				if (m.contains(e.getPoint())) {
+					System.out.println(m.toString());
 				}
 			}
 		}
@@ -106,13 +162,19 @@ public class Map implements SimpGraphics {
 	}
 
 	@Override
-	public void enlarge() {
+	public boolean isActive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void inactiveTimer(int seconds) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void shrink() {
+	public void rescale(double scale) {
 		// TODO Auto-generated method stub
 		
 	}

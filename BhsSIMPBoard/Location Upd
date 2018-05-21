@@ -1,0 +1,174 @@
+{
+	"wings" : [
+		{
+			"description" : "Main Office test wing",
+			"upperLeft" : [0.149356, 0.121739],
+			"lowerRight" : [0.25236, 0.21413],
+			"rooms" : [
+				{
+					"description" : "Main Office",
+					"upperLeft" : [0.149356, 0.121739],
+					"lowerRight" : [0.25236, 0.21413]
+				}
+			]
+		},
+		{
+			"description" : "Science Wing",
+			"upperLeft" : [0.126180, 0.2611111],
+			"lowerRight" : [0.269527, 0.43888889],
+			"rooms" : [
+				{
+					"description" : "Room1",
+					"upperLeft" : [0.126180, 0.2611111],
+					"lowerRight" : [0.2017167, 0.32111111]
+				}
+			]
+		},
+		{
+			"description" : "Library",
+			"upperLeft" : [0.1330472, 0.48555555],
+			"lowerRight" : [0.260944206, 0.61],
+			"rooms" : [
+				{
+					"description" : "Library",
+					"upperLeft" : [0.1330472, 0.4855555],
+					"lowerRight" : [0.260944206, 0.61]
+				}
+			]
+		},
+		{
+		"description" : "Cafetorium",
+			"upperLeft" : [0.2712446, 0.1811111],
+			"lowerRight" : [0.52875536, 0.29444444],
+			"rooms" : [
+				{
+					"description" : "Cafetorium",
+					"upperLeft" : [0.2712446, 0.181111111],
+					"lowerRight" : [0.52875536, 0.294444444]
+				}
+			]
+		},
+		{
+			"description" : "Classrooms/Student Store",
+			"upperLeft" : [0.276394, 0.40555555],
+			"lowerRight" : [0.3725321, 0.53],
+			"rooms" : [
+				{
+					"description" : "Classrooms/Student Store",
+					"upperLeft" : [0.276394, 0.40555555],
+					"lowerRight" : [0.3725321, 0.53]
+				}
+			]
+		},
+		{
+			"description" : "Book Room",
+			"upperLeft" : [0.277253189, 0.536666],
+			"lowerRight" : [0.3442060086, 0.61666667],
+			"rooms" : [
+				{
+					"description" : "Book room",
+					"upperLeft" : [0.277253189, 0.53666666],
+					"lowerRight" : [0.3442060086, 0.616666667]
+				}
+			]
+		},
+		{
+			"description" : "Band/Choir",
+			"upperLeft" : [0.52017167, 0.391111],
+			"lowerRight" : [0.6231759, 0.531111111],
+			"rooms" : [
+				{
+					"description" : "Band/Choir",
+					"upperLeft" : [0.52017167, 0.3911111111],
+					"lowerRight" : [0.6231759, 0.531111111]
+				}
+			]
+		},
+		{
+			"description" : "PAC",
+			"upperLeft" : [0.6386266094, 0.0977777778],
+			"lowerRight" : [0.7493562232, 0.1655555556],
+			"rooms" : [
+				{
+					"description" : "PAC",
+					"upperLeft" : [0.6386266094, 0.0977777778],
+					"lowerRight" : [0.7493562232, 0.165555556]
+				}
+			]
+		},
+		{
+			"description" : "Gym",
+			"upperLeft" : [0.65321, 0.176666666],
+			"lowerRight" : [0.86695, 0.30666666666],
+			"rooms" : [
+				{
+					"description" : "Gym",
+					"upperLeft" : [0.65321, 0.176666666],
+					"lowerRight" : [0.86695, 0.30666666666]
+				}
+			]
+		},
+		{
+			"description" : "Boys locker Room",
+			"upperLeft" : [0.64978, 0.298888888],
+			"lowerRight" : [0.811115, 0.38],
+			"rooms" : [
+				{
+					"description" : "Boys Locker Room",
+					"upperLeft" : [0.64978, 0.298888888],
+					"lowerRight" : [0.811115, 0.38]
+				}
+			]
+		},
+		{
+			"description" : "Room 66/65",
+			"upperLeft" : [0.876394, 0.30666667],
+			"lowerRight" : [0.917596, 0.37888889],
+			"rooms" : [
+				{
+					"description" : "Room 66/65",
+					"upperLeft" : [0.876394, 0.30666667],
+					"lowerRight" : [0.917596, 0.37888889]
+				}
+			]
+		},
+		{
+			"description" : "Weight Room",
+			"upperLeft" : [0.8480686695, 0.44888889],
+			"lowerRight" : [0.9055793991, 0.518888889],
+			"rooms" : [
+				{
+					"description" : "Weight Room",
+					"upperLeft" : [0.8480686695, 0.44888889],
+					"lowerRight" : [0.9055793991, 0.518888889]
+				}
+			]
+		},
+		{
+			"description" : "Girls Locker Room",
+			"upperLeft" : [0.6532188841, 0.45],
+			"lowerRight" : [0.7167381974, 0.648888889],
+			"rooms" : [
+				{
+					"description" : "Girls Locker Room",
+					"upperLeft" : [0.6532188841, 0.45],
+					"lowerRight" : [0.7167381974, 0.648888889]
+				}
+			]
+		},
+		{
+			"description" : "Small Gym",
+			"upperLeft" : [0.721888412, 0.55666667],
+			"lowerRight" : [0.872961374, 0.6155555556],
+			"rooms" : [
+				{
+					"description" : "Small Gym",
+					"upperLeft" : [0.721888412, 0.55666667],
+					"lowerRight" : [0.872961374, 0.6155555556]
+				}
+			]
+		}
+			
+	]	
+}
+	

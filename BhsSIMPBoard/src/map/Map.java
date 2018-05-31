@@ -96,47 +96,12 @@ public class Map implements SimpGraphics {
 
 		return result;
 	}
-	private class MapListener implements MouseListener {
 
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			for (MapElement m : elements) {
-				if (m.contains(e.getPoint())) {
-					System.out.println(m.toString());
-				}
-			}
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
-	
 	@Override
 	public void create() {
 		// TODO Auto-generated method stub
-		JFrame frame = new JFrame("Tester");
+		//System.out.println("main create");
+	    frame = new JFrame("Map");
 		
 		
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -145,12 +110,12 @@ public class Map implements SimpGraphics {
 		
 		
 		
-		ImagePanel IP = new ImagePanel(MAP_FILENAME);
+		ImagePanel IP = new ImagePanel(MAP_FILENAME, this);
 		frame.add(IP);
 		
 		frame.setVisible(true);
 		
-		MouseListener listener = new MapListener();
+		MouseListener listener = new MapListener(elements);
 		
 		IP.addMouseListener(listener);
 	}
@@ -158,6 +123,7 @@ public class Map implements SimpGraphics {
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
+		//frame.setVisible(false);
 		frame.dispose();
 	}
 
@@ -177,5 +143,11 @@ public class Map implements SimpGraphics {
 	public void rescale(double scale) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void exit() {
+		// TODO Auto-generated method stub
+		destroy();
 	}
 }

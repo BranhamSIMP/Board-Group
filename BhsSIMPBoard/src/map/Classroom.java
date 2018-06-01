@@ -2,6 +2,7 @@ package map;
 
 import java.awt.Rectangle;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -76,6 +77,12 @@ public class Classroom extends MapElement {
 	protected void click() {
 		// TODO Auto-generated method stub
 		System.out.println(description);
+		try {
+			TeacherRoom.getPicture(description);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("error finding teacher info");
+		}
 	}
 
 	@Override

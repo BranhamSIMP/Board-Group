@@ -35,6 +35,7 @@ public class TeacherPictures {
         JLabel lbl=new JLabel();
         lbl.setIcon(icon);
         frame.add(lbl);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
